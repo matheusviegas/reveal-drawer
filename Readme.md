@@ -39,6 +39,7 @@ plugins: [RevealDrawer];
 - `T` - toggle drawing board
 - `D` - toggle mode (`drawing` or `not drawing`)
 - `Ctrl + Z` - remove last line from current slide
+- `Ctrl + Space` - reset the board
 - `"1", "2", "3", "4"` - change selected color (base on the order)
 
 If you're not changing anything in the [Config](#config) then you should be able to show drawing board just by hitting `T`. By default the drawing is enabled. 
