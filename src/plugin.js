@@ -59,6 +59,9 @@ const Drawer = () => {
     if (options.color == null || typeof options.color !== "string") {
       options.color = options.colors[0];
     }
+    if (options.resetBoardKey == null || options.resetBoardKey == undefined || typeof options.resetBoardKey !== "string") {
+      options.resetBoardKey = " ";
+    }
 
     options.drawKeyCode = getKeyCode(options.toggleDrawKey);
     options.boradKeyCode = getKeyCode(options.toggleBoardKey);
@@ -222,7 +225,7 @@ const Drawer = () => {
         case "z":
           removeLastPath();
           break;
-        case " ":
+        case options.resetBoardKey:
           resetCurrentBoard();
           break;
       }
