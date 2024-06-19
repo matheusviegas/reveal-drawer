@@ -204,12 +204,28 @@ const Drawer = () => {
     }
   }
 
-  function removeLastPath(e) {
-    if (e.ctrlKey && e.key === "z") {
-      const currPath = currentBoard.paths.pop();
-      currentBoard.paths.pop();
-      currentBoard.paths.push(currPath);
-      requestAnimationFrame(redraw);
+  function removeLastPath() {
+    const currPath = currentBoard.paths.pop();
+    currentBoard.paths.pop();
+    currentBoard.paths.push(currPath);
+    requestAnimationFrame(redraw);
+  }
+
+  function resetCurrentBoard() {
+    currentBoard.paths = [new Path2D()];
+    requestAnimationFrame(redraw);
+  }
+
+  function handleShortcuts(e) {
+    if (e.ctrlKey) {
+      switch (e.key) {
+        case "z":
+          removeLastPath();
+          break;
+        case " ":
+          resetCurrentBoard();
+          break;
+      }
     }
   }
 
@@ -221,12 +237,12 @@ const Drawer = () => {
   }
 
   function registerKeys() {
-    document.addEventListener("keydown", removeLastPath);
+    document.addEventListener("keydown", handleShortcuts);
     document.addEventListener("keydown", changeColorManually);
   }
 
   function unregisterKeys() {
-    document.removeEventListener("keydown", removeLastPath);
+    document.removeEventListener("keydown", handleShortcuts);
     document.removeEventListener("keydown", changeColorManually);
   }
 
