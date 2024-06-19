@@ -65,6 +65,7 @@ Reveal.initialize({
   drawer: {
     toggleDrawKey: "d", // (optional) key to enable drawing, default "d"
     toggleBoardKey: "t", // (optional) key to show drawing board, default "t"
+    resetBoardKey: " ", // (optional) key to use in combination with CTRL to reset the drawing board, default " " (space) - Usage: CTRL+Space
     colors: ["#fa1e0e", "#8ac926", "#1982c4", "#ffca3a"], // (optional) list of colors avaiable (hex color codes)
     color: "#FF0000", // (optional) color of a cursor, first color from `codes` is a default
     pathSize: 4, // (optional) path size in px, default 4
